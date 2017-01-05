@@ -9,12 +9,12 @@ public class ZipcodeDto {
 	private int building2;
 	
 	public ZipcodeDto(String sido) {
-		super();
+	
 		this.sido = sido;
 	}
 	
 	public ZipcodeDto(String sido,String doro) {
-		super();
+	
 		this.sido = sido;
 		this.doro = doro;
 	}
@@ -23,7 +23,10 @@ public class ZipcodeDto {
 	public String toString() {
 		return String.format("%s %s",doro,sido);
 	}
-
+	public String[] toArray(){
+		return new String[] {zipcode+"",sido+"",sigungu+"",doro+"",building1+"",building2+""};
+		
+	}
 	public ZipcodeDto(String zipcode, String sido, String sigungu, String doro, int building1, int building2) {
 		super();
 		this.zipcode = zipcode;
@@ -73,6 +76,4 @@ public class ZipcodeDto {
 	public void setBuilding2(int building2) {
 		this.building2 = building2;
 	}
-
-	
 }

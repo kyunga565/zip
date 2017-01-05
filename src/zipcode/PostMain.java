@@ -6,17 +6,18 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 @SuppressWarnings("serial")
-public class Main extends JFrame {
+public class PostMain extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField tfzip;
-	private JTextField tfaddr;
+	public static JTextField tfzip;
+	public static JTextField tfaddr;
 	private JTextField tfaddr2;
 
 	/**
@@ -26,7 +27,7 @@ public class Main extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Main frame = new Main();
+					PostMain frame = new PostMain();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -38,7 +39,7 @@ public class Main extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Main() {
+	public PostMain() {
 		setTitle("우편번호검색하기");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -61,7 +62,6 @@ public class Main extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				Search s = new Search();
 				s.setVisible(true);
-			//	revalidate();  
 			}
 		});
 		btnsearch.setBounds(284, 16, 117, 29);
@@ -86,6 +86,11 @@ public class Main extends JFrame {
 		tfaddr2.setColumns(10);
 		
 		JButton btnadd = new JButton("등록");
+		btnadd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null,tfzip.getText()+" "+tfaddr.getText()+" "+tfaddr2.getText());
+			}
+		});
 		btnadd.setBounds(142, 222, 117, 29);
 		contentPane.add(btnadd);
 	}
